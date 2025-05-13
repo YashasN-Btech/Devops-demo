@@ -5,6 +5,9 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    concurrency:
+      group: ci-main
+      cancel-in-progress: true
     steps:
       - uses: actions/checkout@v3
       - name: Run a simple command
